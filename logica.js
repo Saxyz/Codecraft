@@ -49,7 +49,7 @@ function splitString(stringToSplit, separator) {
     return arrayOfStrings
 }
 
-//Creamos la expresion regular
+//Validamos la expresion regular
 function validateExpression(code){
     let regExp = /\b\w+\b/;
     let splitText = splitString(code, "\n");
@@ -80,10 +80,8 @@ function validateExpression(code){
 
 }
     
-//var lines = text.split('\n');
 
-
-
+//ejemplo de codigo, el codigo tiene que ser el que escriban en la caja de texto, resuelvan ustedes chicos, tienen que hacer esas conexiones
 let text = "bloque caja1\n hiloRedstone caja2\nminarPara caja1<8";
 validateExpression(text);
 
