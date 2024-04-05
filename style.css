@@ -92,3 +92,25 @@ main{
     background-color: rgb(89, 179, 197);
     transform: scale(1.2);
 }
+
+@media (max-width: 480px) {
+    h1{
+        text-align: center;
+    }
+    nav{
+        position:static;
+    }
+    .header-box{
+        padding-bottom: 5%;
+    }
+    .header-box, main{
+        width: auto;
+    }
+    #logo-header{
+        width: 97%;
+    }
+    .submit{
+        width: auto;
+    }
+   
+}
