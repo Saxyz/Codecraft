@@ -77,8 +77,8 @@ function validateExpression(code){
                 }
             });
         }
-        lineOutput += (words.length > 1 ? 'Están ubicadas en la línea #' + (index + 1) + '\n' 
-        : 'Está ubicada en la línea #' + (index + 1) + '\n');
+        lineOutput += (words.length > 1 ? 'Están ubicadas en la línea #' + (index + 1) + '\n\n' 
+        : 'Está ubicada en la línea #' + (index + 1) + '\n\n');
         output += lineOutput;
     });
     return output;
