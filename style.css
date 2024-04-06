@@ -111,5 +111,6 @@ main{
     }
     .submit{
         width: auto;
+        margin-left: 16%;
     }
 }
