@@ -1,4 +1,5 @@
 //Creamos los diccionarios
+
 const conditionals = {
     "si":"if",
     "sino":"elif",
@@ -35,6 +36,7 @@ const controlStructures = {
 }
 
 //funcion para separar lineas de codigo
+
 function splitString(stringToSplit, separator) {
     let arrayOfStrings = stringToSplit.split(separator);
   
@@ -50,38 +52,40 @@ function splitString(stringToSplit, separator) {
 }
 
 //Validamos la expresion regular
+
 function validateExpression(code){
-    let regExp = /\b\w+\b/;
+    let regExp = /\b\w+\b|\w+(?=\w)/g;
     let splitText = splitString(code, "\n");
-    let cont = 0;
-    splitText.forEach(linea => {
+    let output = "";
+    splitText.forEach((linea, index) => {
         let words = linea.match(regExp);
-        cont ++;
+        let lineOutput = "";
         if (words){
             words.forEach(word => {
                 if (conditionals[word]) {
-                    console.log('La palabra "' + word + '" es un condicional.');
+                    lineOutput += 'La palabra "' + word + '" es un condicional.\n';
                 } else if (variableType[word]) {
-                    console.log('La palabra "' + word + '" es un tipo de variable.');
+                    lineOutput += 'La palabra "' + word + '" es un tipo de variable.\n';
                 } else if (operators[word]) {
-                    console.log('La palabra "' + word + '" es un operador.');
+                    lineOutput += 'La palabra "' + word + '" es un operador.\n';
                 } else if (logicOperators[word]) {
-                    console.log('La palabra "' + word + '" es un operador lógico.');
+                    lineOutput += 'La palabra "' + word + '" es un operador lógico.\n';
                 } else if (controlStructures[word]) {
-                    console.log('La palabra "' + word + '" es una estructura de control.');
+                    lineOutput += 'La palabra "' + word + '" es una estructura de control.\n';
                 } else{
-                    console.log('La palabra "' + word + '" no se reconoce.');
+                    lineOutput += 'La palabra "' + word + '" no se reconoce.\n';
                 }
-
             });
         }
-        console.log('Está ubicada en la linea #"' + cont);
+        lineOutput += (words.length > 1 ? 'Están ubicadas en la línea #' + (index + 1) + '\n' 
+        : 'Está ubicada en la línea #' + (index + 1) + '\n');
+        output += lineOutput;
     });
-
+    return output;
 }
-    
-
-//ejemplo de codigo, el codigo tiene que ser el que escriban en la caja de texto, resuelvan ustedes chicos, tienen que hacer esas conexiones
-let text = "bloque caja1\n hiloRedstone caja2\nminarPara caja1<8";
-validateExpression(text);
-
+  
+function validateCode(){
+    var code = document.getElementById("code-box").value;
+    var result = validateExpression(code);
+    document.getElementById("output-area").innerHTML = result;
+}

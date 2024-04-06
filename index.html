@@ -7,6 +7,7 @@
     <title>Expresiones regulares</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="logica.js" defer></script>
 </head>
 <body>
     <header>
@@ -24,11 +25,13 @@
     <main>
         <h1 class="title">Ingrese su código de Codecraft</h1>
         <div class="container">
-            <textarea cols="70" rows="10" class="text-box" id="code-box" required placeholder="Escribe tu código acá, chaval :')"></textarea>
+            <textarea cols="35" rows="10" class="text-box" id="code-box" required placeholder="Escribe tu código acá, chaval :')"></textarea>
         </div>
-        <input type="submit" class="submit" id="code-submit">
+        <input type="button" class="submit" value="Enviar" onclick="validateCode()">
+        <div class="container">
+            <textarea cols="35" rows="10" class="text-box" id="output-area" readonly></textarea>
+        </div>
     </main>
-    
 
 </body>
 </html>
