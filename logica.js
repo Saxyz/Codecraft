@@ -60,7 +60,7 @@ function validateExpression(code){
     splitText.forEach((linea, index) => {
         let words = linea.match(regExp);
         let lineOutput = "";
-        if (words){
+        if (words && words.length>0){
             words.forEach(word => {
                 if (conditionals[word]) {
                     lineOutput += 'La palabra "' + word + '" es un condicional.\n';
@@ -77,9 +77,11 @@ function validateExpression(code){
                 }
             });
         }
+        if(words){
         lineOutput += (words.length > 1 ? 'Están ubicadas en la línea #' + (index + 1) + '\n\n' 
         : 'Está ubicada en la línea #' + (index + 1) + '\n\n');
         output += lineOutput;
+        }
     });
     return output;
 }
