@@ -64,6 +64,35 @@ main{
     margin: 20px auto;
 }
 
+.contenedor{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cuadro{
+    width: 45%; /* Ajusta este valor según tus necesidades */
+    border: 1px solid black; /* Añade un borde para visualizar los cuadros */
+    padding: 10px;
+}
+
+.cuadro ul li ul li{
+    margin: 10px 0; /* Ajusta estos valores según el espacio que desees */
+}
+
+.cuadro img{
+    width: 200px; /* Ajusta este valor según el tamaño que desees */
+    height: 200px; /* Ajusta este valor según el tamaño que desees */
+}
+
+.highlight-yellow{
+    background-color: yellow;
+}
+
+.highlight-blue{
+    background-color: lightblue;
+}
+
+
 .text-area {
     width: 45%;
 }
